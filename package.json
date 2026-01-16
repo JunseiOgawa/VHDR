@@ -2,6 +2,7 @@
   "name": "hdr-prototype",
   "private": true,
   "version": "0.1.0",
+  "packageManager": "bun@1.1.30",
   "type": "module",
   "scripts": {
     "dev": "vite --port 1420",

@@ -1,16 +1,19 @@
 # VHDR
 
+## セットアップ（Bun）
+1. 依存関係をインストール
+	- `bun install`
+2. フロントエンド開発サーバー
+	- `bun run dev`
+3. Tauri起動
+	- `bun run tauri dev`
+
 ## 概要
 HDR合成の簡易PoCアプリです。監視フォルダから連続撮影画像を検出し、平均合成で16bit PNGとEXRを出力します。
 
 ## 前提
-- Node.js / npm
+- Bun
 - Rust (Tauri)
-
-## セットアップ
-1. 依存関係をインストール
-2. 開発サーバー起動
-3. Tauri起動
 
 ## 使い方
 1. 監視フォルダを入力
