@@ -4,4 +4,5 @@ src-tauri/target/
 /docs/
 docs/
 package-lock.json
+src-tauri/gen/
 
