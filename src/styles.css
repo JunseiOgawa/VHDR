@@ -73,6 +73,11 @@ body {
   color: #111827;
 }
 
+.button.secondary.active {
+  border-color: #111827;
+  background: #f3f4f6;
+}
+
 .badge {
   padding: 4px 10px;
   border-radius: 999px;
@@ -121,6 +126,43 @@ body {
   border: 1px solid #e5e7eb;
   object-fit: contain;
   background: #f9fafb;
+}
+
+.compare-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.compare-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.compare-base,
+.compare-after {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.compare-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow: hidden;
+  border-right: 2px solid #111827;
+}
+
+.compare-slider {
+  width: 100%;
 }
 
 .small {
