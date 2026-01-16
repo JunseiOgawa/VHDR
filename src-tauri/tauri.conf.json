@@ -28,6 +28,9 @@
     }
   },
   "bundle": {
-    "active": false
+    "active": false,
+    "icon": [
+      "../../VSA/VSA-MainApp/src-tauri/icons/icon.ico"
+    ]
   }
 }
