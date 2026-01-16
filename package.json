@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "tauri dev",
+    "dev-vite": "vite --port 1420",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "tauri": "tauri"
