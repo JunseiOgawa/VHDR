@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { convertFileSrc, invoke } from "@tauri-apps/api/core";
 import { listen } from "@tauri-apps/api/event";
+import { open } from "@tauri-apps/plugin-dialog";
 
 const GROUP_WINDOW_MS = 2 * 60 * 1000;
 const MAX_GROUP_IMAGES = 5;
@@ -133,6 +134,27 @@ export default function App() {
     }
   };
 
+  const handleToggleWatch = async () => {
+    if (isWatching) {
+      await handleStop();
+      return;
+    }
+    await handleStart();
+  };
+
+  const handleSelectFolder = async () => {
+    try {
+      const selection = await open({ directory: true, multiple: false });
+      if (typeof selection === "string") {
+        setWatchFolder(selection);
+      } else if (Array.isArray(selection) && selection.length > 0) {
+        setWatchFolder(selection[0]);
+      }
+    } catch (error) {
+      setMessage(String(error));
+    }
+  };
+
   const handleAnalyze = async () => {
     if (!selectedGroup) {
       setMessage("連続撮影グループを選択してください");
@@ -202,15 +224,15 @@ export default function App() {
             onChange={(event) => setWatchFolder(event.target.value)}
             placeholder="監視フォルダを入力"
           />
-          <button className="button" onClick={handleStart} disabled={isWatching}>
-            監視開始
-          </button>
           <button
             className="button secondary"
-            onClick={handleStop}
-            disabled={!isWatching}
+            onClick={handleSelectFolder}
+            disabled={isWatching}
           >
-            監視停止
+            フォルダ参照
+          </button>
+          <button className="button" onClick={handleToggleWatch}>
+            {isWatching ? "監視停止" : "監視開始"}
           </button>
         </div>
         {message && <div className="muted">{message}</div>}
