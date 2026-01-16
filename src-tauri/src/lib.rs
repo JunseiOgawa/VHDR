@@ -8,7 +8,7 @@ use exr::image::write::write_rgb_file;
 use image::{ImageBuffer, Rgb};
 use notify::{Event, EventKind, RecommendedWatcher, RecursiveMode, Watcher};
 use serde::{Deserialize, Serialize};
-use tauri::{AppHandle, Emitter, Manager, State};
+use tauri::{AppHandle, Emitter, State};
 
 #[derive(Default)]
 struct WatcherState {
